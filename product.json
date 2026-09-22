@@ -1,0 +1,117 @@
+{
+  "name": "Telegram Bulk Profile Check",
+  "brand": "TG Validator",
+  "repository": "tgvalidator/telegram-bulk-profile-api",
+  "description": "Username, user ID, first and last name, gender, age band, ethnicity and avatar across a whole list, plus last-seen time, active days and the member flag.",
+  "official_site": "https://tgvalidator.com",
+  "landing_page": "https://tgvalidator.com/products/tg_profile_batch",
+  "canonical_docs": "https://tgvalidator.com/api-docs",
+  "base_url": "https://tgvalidator.com",
+  "auth": {
+    "type": "api_key",
+    "header": "X-API-Key"
+  },
+  "mode": "async-bulk",
+  "product": "tg_profile_batch",
+  "identifier_kind": "phone",
+  "requires_country": true,
+  "endpoints": {
+    "submit": {
+      "method": "POST",
+      "path": "/api/v1/bulk-tasks"
+    },
+    "status": {
+      "method": "GET",
+      "path": "/api/v1/bulk-tasks/{id}"
+    },
+    "balance": {
+      "method": "GET",
+      "path": "/api/v1/balance"
+    }
+  },
+  "limits": {
+    "min_items": 1000,
+    "max_items": 100000,
+    "poll_interval_seconds": 30,
+    "file_formats": [
+      "txt",
+      "csv"
+    ]
+  },
+  "result_fields": [
+    {
+      "name": "Phone",
+      "example": "+17253100591",
+      "description": "The submitted number."
+    },
+    {
+      "name": "activated",
+      "example": "yes",
+      "description": "Whether the number is registered on Telegram."
+    },
+    {
+      "name": "uid",
+      "example": "1234567890",
+      "description": "Telegram user id."
+    },
+    {
+      "name": "username",
+      "example": "alex_kim",
+      "description": "Username, empty when the account has none."
+    },
+    {
+      "name": "first_name",
+      "example": "Alex",
+      "description": "Display first name."
+    },
+    {
+      "name": "last_name",
+      "example": "Kim",
+      "description": "Display last name."
+    },
+    {
+      "name": "Last Online Time",
+      "example": "2026/4/26 17:01",
+      "description": "The most recent online time observed."
+    },
+    {
+      "name": "Active Days",
+      "example": "130",
+      "description": "Days since that activity."
+    },
+    {
+      "name": "Is Member",
+      "example": "No",
+      "description": "Whether the account has Telegram Premium."
+    },
+    {
+      "name": "Avatar",
+      "example": "<image url>",
+      "description": "Avatar URL."
+    },
+    {
+      "name": "Gender",
+      "example": "male",
+      "description": "Gender estimated from the avatar."
+    },
+    {
+      "name": "Age",
+      "example": "25",
+      "description": "Age band estimated from the avatar."
+    },
+    {
+      "name": "Ethnicity",
+      "example": "east_asian",
+      "description": "Ethnicity estimated from the avatar."
+    }
+  ],
+  "statuses": [
+    "processing",
+    "success",
+    "failed"
+  ],
+  "pricing_url": "https://tgvalidator.com/pricing",
+  "maintainer": "TG Validator",
+  "license": "MIT",
+  "last_reviewed": "2026-09-22"
+}
